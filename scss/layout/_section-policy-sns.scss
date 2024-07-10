@@ -1,3 +1,5 @@
+@charset 'utf-8';
+
 /* section : policy-sns */
 .policy-sns {
   height: 454px;
@@ -6,6 +8,7 @@
     max-width: 1500px;
     height: 100%;
     margin: 50px auto;
+    overflow: hidden;
   }
   .policy-sns-title {
     display: inline-block;
@@ -190,7 +193,7 @@
     }
     .swiper-button-prev {
       @include responsive-slide-btn;
-      left: -1rem;
+      left: -0.5rem;
       &::after {
         @include slide-arrow-img;
         background-position: -320px -130px;

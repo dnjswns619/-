@@ -1,5 +1,5 @@
 @charset 'utf-8';
-@import '../mixin';
+
 /* section : news */
 .news {
   &-inner {
@@ -301,9 +301,8 @@
         width: 48%;
       }
       .notice-board-wrapper {
-        width: calc(100% + 2rem);
-        margin-left: -1rem;
-        margin-right: -1rem;
+        width: calc(100%);
+        margin: 0 auto;
         background: #f7f7f7;
       }
       .notice-board-content {
