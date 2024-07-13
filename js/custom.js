@@ -2,8 +2,8 @@ window.addEventListener('load', () => {
   // header language클릭시 다른 언어 list 보이기
   const currentLanguage = document.querySelector('.language__item--default');
   const languageLists = document.querySelector('.utill__link--language');
-  const mCurrentLanguage = document.querySelector('.m-current-language');
-  const mLanguageLists = document.querySelector('.m-language-lists');
+  const mCurrentLanguage = document.querySelector('.m-nav .current-language');
+  const mLanguageLists = document.querySelector('.m-nav .utill__link--language');
   currentLanguage.addEventListener('click', () => {
     languageLists.classList.toggle("block");
   })
@@ -12,9 +12,9 @@ window.addEventListener('load', () => {
   })
 
   // gnb hover시 서브메뉴창 보이기
-  let mainMenu = document.querySelectorAll('.gnb__item--link');
-  let subMenu = document.querySelectorAll('.lnb');
-  let searchBtn = document.querySelector('#search-btn');
+  const mainMenu = document.querySelectorAll('.gnb__item--link');
+  const subMenu = document.querySelectorAll('.lnb');
+  const searchBtn = document.querySelector('.search__btn');
   for (let i = 0; i < mainMenu.length; i++) {
     mainMenu[i].addEventListener('mouseover', () => {
       mainMenu[i].classList.add('active-menu');
@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
   }
   
   // mobile-menu 컨텐츠 보이기
-  let mobileTrigger = document.querySelector('.m-nav-trigger');
+  let mobileTrigger = document.querySelector('.m-nav__trigger');
   mobileTrigger.addEventListener('click', () => {
     document.body.classList.add('active-m-menu');
   })
