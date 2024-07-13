@@ -2127,14 +2127,14 @@ strong {
   height: 292px;
   background: #e7f0f9 url(../images/bg_pattern_bottom.png);
 }
-.relevant-inner {
+.relevant__inner {
   max-width: 1500px;
   height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
-.relevant-inner > a {
+.relevant__banner {
   display: block;
   width: 25%;
   height: 100%;
@@ -2142,22 +2142,22 @@ strong {
   background-position: center;
   background-size: contain;
 }
-.relevant .relevant-sites {
+.relevant__sites {
   width: 75%;
 }
-.relevant .select-content {
+.relevant__sites--select {
   display: flex;
   justify-content: space-evenly;
   margin-top: 4rem;
 }
-.relevant .select-content > div {
+.relevant__sites--select > div {
   width: 35%;
 }
-.relevant .affiliated-institution-select {
+.relevant__sites--select .affiliated-institution-select {
   border: 1px solid #6c7e90;
   display: flex;
 }
-.relevant .affiliated-institution-select #affiliated-institution {
+.relevant__sites--select .affiliated-institution-select #affiliated-institution {
   border: none;
   appearance: none;
   width: 100%;
@@ -2166,11 +2166,11 @@ strong {
   background: #e7f0f9 url(../images/select_bg.gif) no-repeat;
   background-position: right 1em center;
 }
-.relevant .related-institution-select {
+.relevant__sites--select .related-institution-select {
   border: 1px solid #6c7e90;
   display: flex;
 }
-.relevant .related-institution-select #related-institution {
+.relevant__sites--select .related-institution-select #related-institution {
   border: none;
   appearance: none;
   width: 100%;
@@ -2179,7 +2179,7 @@ strong {
   background: #e7f0f9 url(../images/select_bg.gif) no-repeat;
   background-position: right 1em center;
 }
-.relevant .submit-btn {
+.relevant__sites--submit {
   text-align: center;
   display: block;
   width: 50px;
@@ -2188,12 +2188,12 @@ strong {
   background: #6c7e90;
   color: #fff;
 }
-.relevant .relevant-site-slider {
+.relevant__sites--slider {
   width: 1030px;
   margin: 2.5rem auto;
   position: relative;
 }
-.relevant .relevant-site-slider .swiper-button-prev {
+.relevant__sites--slider .swiper-button-prev {
   background: url(../images/sprite_img01.png) no-repeat;
   width: 14px;
   height: 24px;
@@ -2203,7 +2203,7 @@ strong {
   background-position: -450px 0;
   left: -2em;
 }
-.relevant .relevant-site-slider .swiper-button-next {
+.relevant__sites--slider .swiper-button-next {
   background: url(../images/sprite_img01.png) no-repeat;
   width: 14px;
   height: 24px;
@@ -2213,34 +2213,34 @@ strong {
   background-position: -470px 0;
   right: -2em;
 }
-.relevant .relevant-slider {
+.relevant-slider {
   overflow: hidden;
 }
-.relevant .relevant-slider .swiper-wrapper .swiper-slide {
+.relevant-slider .swiper-wrapper .swiper-slide {
   background: #fff;
   height: 55px;
 }
-.relevant .relevant-slider .swiper-wrapper .swiper-slide a {
+.relevant-slider .swiper-wrapper .swiper-slide a {
   display: block;
   width: 100%;
   height: 100%;
 }
-.relevant .relevant-slider .swiper-wrapper .swiper-slide a img {
+.relevant-slider .swiper-wrapper .swiper-slide a img {
   width: inherit;
   height: inherit;
   object-fit: contain;
 }
 
 @media (max-width: 1500px) {
-  .relevant-inner {
+  .relevant__inner {
     padding: 0 1rem;
   }
-  .relevant .relevant-site-slider {
+  .relevant__sites--slider {
     width: 930px;
   }
 }
 @media (max-width: 1430px) {
-  .relevant .relevant-site-slider {
+  .relevant__sites--slider {
     width: 62vw;
   }
 }
@@ -2248,25 +2248,25 @@ strong {
   .relevant {
     height: auto;
   }
-  .relevant-inner {
+  .relevant__inner {
     display: block;
     overflow: hidden;
   }
-  .relevant-inner > a {
+  .relevant__banner {
     width: 48%;
     height: 292px;
     float: left;
     margin-bottom: 2.5rem;
   }
-  .relevant-inner > a::after {
+  .relevant__banner::after {
     content: "";
     display: block;
     clear: both;
   }
-  .relevant .relevant-sites {
+  .relevant__sites {
     width: 100%;
   }
-  .relevant .select-content {
+  .relevant__sites--select {
     width: 48%;
     height: 292px;
     float: right;
@@ -2274,44 +2274,44 @@ strong {
     flex-direction: column;
     margin-top: 0;
   }
-  .relevant .select-content::after {
+  .relevant__sites--select::after {
     content: "";
     display: block;
     clear: both;
   }
-  .relevant .select-content .affiliated-institution-select {
+  .relevant__sites--select .affiliated-institution-select {
     width: 100%;
     margin-bottom: 1.5em;
   }
-  .relevant .select-content .related-institution-select {
+  .relevant__sites--select .related-institution-select {
     width: 100%;
   }
-  .relevant .relevant-site-slider {
+  .relevant__sites--slider {
     width: 90%;
     clear: both;
   }
 }
 @media (max-width: 480px) {
-  .relevant-inner > a {
+  .relevant__banner {
     display: none;
   }
-  .relevant .select-content {
+  .relevant__sites--select {
     width: 100%;
     height: 126px;
     margin-bottom: 1rem;
   }
-  .relevant .select-content .affiliated-institution-select {
+  .relevant__sites--select .affiliated-institution-select {
     margin-bottom: 0.75em;
   }
 }
 @media (max-width: 420px) {
-  .relevant-inner {
+  .relevant__inner {
     padding: 0 4px;
   }
-  .relevant .relevant-site-slider .swiper-button-next {
+  .relevant__sites--slider .swiper-button-next {
     right: -1em;
   }
-  .relevant .relevant-site-slider .swiper-button-prev {
+  .relevant__sites--slider .swiper-button-prev {
     left: -1em;
   }
 }
