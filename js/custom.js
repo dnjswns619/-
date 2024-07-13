@@ -141,7 +141,7 @@ window.addEventListener('load', () => {
   })
   
 
-  var swiper2 = new Swiper(".notice-board", {
+  var swiper2 = new Swiper(".notice__slider", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
