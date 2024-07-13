@@ -2,21 +2,21 @@
 
 /* footer */
 .footer {
-  &-inner {
+  &__inner {
     max-width: 1500px;
     margin: 2em auto 4em;
     display: flex;
     justify-content: space-between;
   }
-  &-left {
+  &__left {
     display: flex;
     justify-content: space-between;
     width: 75%;
-    .footer-content {
+    &--wrap {
       padding-left: 1rem;
       width: 80%;
     }
-    .footer-links {
+    &--links {
       a {
         padding: 0.5em;
         color: #333;
@@ -30,19 +30,19 @@
           text-decoration: underline;
         }
       }
-      .border-right {
-        position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-          display: block;
-          width: 1px;
-          height: 15px;
-          background: #cacaca;
-        }
+    }
+    .border-right {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: block;
+        width: 1px;
+        height: 15px;
+        background: #cacaca;
       }
     }
     .adress-content {
@@ -56,8 +56,8 @@
       }
     }
   }
-  &-right {
-    .certification-banner {
+  &__right {
+    &--banner {
       width: 33.33%;
       height: 65px;
       margin-left: 1em;
@@ -69,78 +69,84 @@
 }
 @include large {
   .footer {
-    &-inner {
+    &__inner {
       padding: 0 1rem;
     }
-    &-links {
-      a:not(.border-right) {
-        display: block;
-        padding-left: 0;
+    &__left {
+      &--links {
+        a:not(.border-right) {
+          display: block;
+          padding-left: 0;
+        }
       }
     }
-    &-right {
-      .certification-banner:last-child {
-        display: block;
-        margin-left: auto;
-        margin-right: 1em;
+    &__right {
+      &--banner {
+        &:last-child {
+          display: block;
+          margin-left: auto;
+          margin-right: 1em;
+        }
       }
     }
   }
 }
 @include medium {
   .footer {
-    &-inner {
+    &__inner {
       flex-direction: column;
       align-items: center;
     }
-    &-left {
+    &__left {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      .footer-content {
+      &--wrap {
         width: 100%;
         padding-left: 0;
         text-align: center;
       }
-    }
-    &-links {
-      a {
-        display: inline-block;
+      &--links {
+        a {
+          display: inline-block;
+        }
+        a:not(.border-right) {
+          display: inline-block;
+          padding-left: 0.5em;
+        }
       }
-      a:not(.border-right) {
-        display: inline-block;
-        padding-left: 0.5em;
-      }
     }
-    &-right {
-      .certification-banner:last-child {
-        display: inline;
-        margin-left: 1em;
-        margin-right: 0;
+    &__right {
+      &--banner {
+        &:last-child {
+          display: inline;
+          margin-left: 1em;
+          margin-right: 0;
+        }
       }
     }
   }
 }
 @include small {
   .footer {
-    &-left {
-      .footer-links {
+    &__left {
+      &--links {
         a {
           font-size: 0.87rem;
         }
       }
-      .adress-content {
-        p {
-          font-size: 0.9rem;
-          line-height: 1.6em;
-        }
+    }
+    .adress-content {
+      p {
+        font-size: 0.9rem;
+        line-height: 1.6em;
       }
     }
   }
 }
 @media (max-width: #{$screen-breakpoint8}) {
   .footer {
-    &-left {
+    &__left {
       .adress-content {
         p {
           font-size: 0.8rem;
@@ -151,11 +157,11 @@
 }
 @media (max-width: #{$screen-breakpoint9}) {
   .footer {
-    &-inner {
+    &__inner {
       padding: 0 4px;
     }
-    &-left {
-      .footer-links {
+    &__left {
+      &--links {
         a {
           font-size: 0.8rem;
           letter-spacing: -1px;
