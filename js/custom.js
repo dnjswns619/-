@@ -41,8 +41,8 @@ window.addEventListener('load', () => {
 
   //notice-reports section 제목 누르면 컨텐츠 보이기
   //notice
-  let noticeTitle = document.querySelectorAll('.notice-title');
-  let noticeText = document.querySelectorAll('.notice-text');
+  let noticeTitle = document.querySelectorAll('.notice__title');
+  let noticeText = document.querySelectorAll('.notice__text');
   for (let i = 0; i < noticeTitle.length; i++) {
     noticeTitle[i].addEventListener('click', () => {
       document.querySelector('.active-notice-heading').classList.remove('active-notice-heading');
@@ -52,8 +52,8 @@ window.addEventListener('load', () => {
     })
   }
   //reports
-  let reportsTitle = document.querySelectorAll('.reports-title');
-  let reportsText = document.querySelectorAll('.reports-content');
+  let reportsTitle = document.querySelectorAll('.reports__title');
+  let reportsText = document.querySelectorAll('.reports__content');
   for (let i = 0; i < reportsTitle.length; i++) {
     reportsTitle[i].addEventListener('click', () => {
       document.querySelector('.active-reports-heading').classList.remove('active-reports-heading');
