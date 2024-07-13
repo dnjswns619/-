@@ -2,7 +2,7 @@
 
 /* section : news */
 .news {
-  &-inner {
+  &__inner {
     max-width: 1500px;
     display: flex;
     justify-content: space-between;
@@ -11,9 +11,16 @@
       width: 32%;
     }
   }
-  .news-wrapper {
+  &__wrapper {
     position: relative;
     overflow: hidden;
+    h2 { margin: 1em 0; }
+  }
+  &__title {
+    display: inline-block;
+    &.active-news-heading {
+      @include active-heading-style;
+    }
     .sub-heading {
       @include sub-heading-style;
       &:hover {
@@ -25,250 +32,247 @@
       }
     }
   }
-  .news-title {
-    display: inline-block;
-    &.active-news-heading {
-      @include active-heading-style;
-    }
-  }
-  .photo-news {
+  &__content {
     display: none;
     width: 100%;
     height: 320px;
     position: absolute;
     top: 4.7em;
-  }
-  .photo-box {
-    display: block;
-    width: inherit;
-    height: inherit;
-    img {
-      width: inherit;
-      height: inherit;
-      object-fit: cover;
+    &.active-news {
+      display: block;
     }
   }
-  .photo-info {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    box-sizing: border-box;
-    padding: 0.7em;
-    font-weight: 500;
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  &__photo {
+    &--box {
+      display: block;
+      width: inherit;
+      height: inherit;
+      img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+      }
+    }
+    &--info {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      box-sizing: border-box;
+      padding: 0.7em;
+      font-weight: 500;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
   .more-view {
     @include more-view-btn;
   }
-  .video-news {
-    display: none;
-    width: 100%;
-    height: 320px;
-    position: absolute;
-    top: 4.7em;
-  }
-  .video-box {
-    display: block;
-    width: inherit;
-    height: inherit;
-    img {
+  &__video {
+    &--box {
+      display: block;
       width: inherit;
       height: inherit;
-      object-fit: cover;
-    }
-  }
-  .video-info {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    box-sizing: border-box;
-    padding: 0.7em;
-    font-weight: 500;
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .active-news {
-    display: block;
-  }
-  .recommend-info-wrapper {
-    .sub-heading {
-      color: #555;
-      position: relative;
-      &::before {
-        @include heading-after-style;
-      }
-      &:hover {
-        color: #111;
+      img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
       }
     }
-  }
-  .recommend-contents {
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1px solid #e3e3e3;
-  }
-  .recommend-content {
-    height: 158px;
-    text-align: center;
-    position: relative;
-    a {
-      display: block;
-      font-size: 1.2rem;
-      color: #343434;
-      padding-top: 110px;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    &-1 {
-      border-right: 1px solid #e3e3e3;
-      border-bottom: 1px solid #e3e3e3;
-      span {
-        @include recommend-icon;
-      }
-    }
-    &-2 {
-      border-right: 1px solid #e3e3e3;
-      border-bottom: 1px solid #e3e3e3;
-      span {
-        @include recommend-icon;
-        background-position: left -60px center;
-      }
-    }
-    &-3 {
-      border-bottom: 1px solid #e3e3e3;
-      span {
-        @include recommend-icon;
-        background-position: left -120px center;
-      }
-    }
-    &-4 {
-      border-right: 1px solid #e3e3e3;
-      span {
-        @include recommend-icon;
-        background-position: left -180px center;
-      }
-    }
-    &-5 {
-      border-right: 1px solid #e3e3e3;
-      span {
-        @include recommend-icon;
-        background-position: left -240px center;
-      }
-    }
-    &-6 {
-      span {
-        @include recommend-icon;
-        background-position: left -300px center;
-      }
-    }
-  }
-  .notice-board-wrapper {
-    .sub-heading {
-      color: #555;
-      position: relative;
-      &::before {
-        @include heading-after-style;
-      }
-      &:hover {
-        color: #111;
-      }
-    }
-  }
-  .notice-board-content {
-    overflow: hidden;
-  }
-  .notice-board {
-    border: 1px solid #e3e3e3;
-    position: relative;
-  }
-  .swiper-slide {
-    height: 320px;
-    img {
+    &--info {
+      position: absolute;
       width: 100%;
-      height: 100%;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      box-sizing: border-box;
+      padding: 0.7em;
+      font-weight: 500;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
-  .notice-board-btn {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: -3em;
-    right: 0;
-    > div {
-      margin-left: 5px;
-    }
-    .swiper-pagination {
-      box-sizing: border-box;
-      width: auto;
-      height: 35px;
-      padding: 0 0.1em;
-      border: 1px solid #333;
-      position: static;
-      span {
-        line-height: 35px;
+  &__recommend {
+    .sub-heading {
+      color: #555;
+      position: relative;
+      &::before {
+        @include heading-after-style;
       }
-      &-current {
-        font-weight: bold;
+      &:hover {
+        color: #111;
       }
     }
-    .swiper-button-prev {
-      @include noticeboard-btn-box;
-      left: 0;
-      opacity: 1;
-      &::after {
-        @include noticeboard-btn-img;
-        background-position: left -9.2em top -2.9em;
+  }
+  .recommend {
+    h2 { margin: 1em 0; }
+    &__list {
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #e3e3e3;
+      &--item {
+        height: 158px;
+        text-align: center;
+        position: relative;
+        a {
+          display: block;
+          font-size: 1.2rem;
+          color: #343434;
+          padding-top: 110px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      &--item-1 {
+        border-right: 1px solid #e3e3e3;
+        border-bottom: 1px solid #e3e3e3;
+        span {
+          @include recommend-icon;
+        }
+      }
+      &--item-2 {
+        border-right: 1px solid #e3e3e3;
+        border-bottom: 1px solid #e3e3e3;
+        span {
+          @include recommend-icon;
+          background-position: left -60px center;
+        }
+      }
+      &--item-3 {
+        border-bottom: 1px solid #e3e3e3;
+        span {
+          @include recommend-icon;
+          background-position: left -120px center;
+        }
+      }
+      &--item-4 {
+        border-right: 1px solid #e3e3e3;
+        span {
+          @include recommend-icon;
+          background-position: left -180px center;
+        }
+      }
+      &--item-5 {
+        border-right: 1px solid #e3e3e3;
+        span {
+          @include recommend-icon;
+          background-position: left -240px center;
+        }
+      }
+      &--item-6 {
+        span {
+          @include recommend-icon;
+          background-position: left -300px center;
+        }
       }
     }
-    .swiper-button-next {
-      @include noticeboard-btn-box;
+  }
+  &__notice {
+    .sub-heading {
+      color: #555;
+      position: relative;
+      &::before {
+        @include heading-after-style;
+      }
+      &:hover {
+        color: #111;
+      }
+    }
+  }
+  .notice {
+    &__wrap {
+      overflow: hidden;
+      h2 { margin: 1em 0; }
+    }
+    &__slider {
+      border: 1px solid #e3e3e3;
+      position: relative;
+      .swiper-slide {
+        height: 320px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    &__btn {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: -3em;
       right: 0;
-      &::after {
-        @include noticeboard-btn-img;
-        background-position: left -10.3em top -2.9em;
+      > div {
+        margin-left: 5px;
       }
-    }
-    .swiper-button-stop {
-      @include noticeboard-btn-box;
-      right: 0;
-      &::after {
-        @include noticeboard-btn-img;
-        background-position: left -11.6em top -2.9em;
+      .swiper-pagination {
+        box-sizing: border-box;
+        width: auto;
+        height: 35px;
+        padding: 0 0.1em;
+        border: 1px solid #333;
+        position: static;
+        span {
+          line-height: 35px;
+        }
+        &-current {
+          font-weight: bold;
+        }
       }
-    }
-    .swiper-button-play {
-      display: none;
-      @include noticeboard-btn-box;
-      right: 0;
-      &::after {
-        @include noticeboard-btn-img;
-        background-position: left -12.8em top -2.9em;
+      .swiper-button-prev {
+        @include noticeboard-btn-box;
+        left: 0;
+        opacity: 1;
+        &::after {
+          @include noticeboard-btn-img;
+          background-position: left -9.2em top -2.9em;
+        }
       }
-      
+      .swiper-button-next {
+        @include noticeboard-btn-box;
+        right: 0;
+        &::after {
+          @include noticeboard-btn-img;
+          background-position: left -10.3em top -2.9em;
+        }
+      }
+      .swiper-button-stop {
+        @include noticeboard-btn-box;
+        right: 0;
+        &::after {
+          @include noticeboard-btn-img;
+          background-position: left -11.6em top -2.9em;
+        }
+      }
+      .swiper-button-play {
+        display: none;
+        @include noticeboard-btn-box;
+        right: 0;
+        &::after {
+          @include noticeboard-btn-img;
+          background-position: left -12.8em top -2.9em;
+        }
+        
+      }
     }
   }
 }
 @include large {
   .news {
-    &-inner {
+    &__inner {
       padding: 0 1rem;
     }
   }
 }
 @include medium {
   .news {
-    .news-wrapper {
+    .news__wrapper {
       .sub-heading {
         font-size: 1.3rem;
         &:not(.first) {
@@ -276,17 +280,21 @@
         }
       }
     }
-    .recommend-content {
-      a {
-        font-size: 1rem;
-      }
-    }
-    .recommend-info-wrapper {
+    &__recommend {
       .sub-heading {
         font-size: 1.3rem;
       }
     }
-    .notice-board-wrapper {
+    .recommend {
+      &__list {
+        &--item {
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    &__notice {
       .sub-heading {
         font-size: 1.3rem;
       }
@@ -295,17 +303,36 @@
 }
 @include small {
   .news {
-    &-inner {
+    &__inner {
       flex-wrap: wrap;
       > div {
         width: 48%;
       }
-      .notice-board-wrapper {
-        width: calc(100%);
-        margin: 0 auto;
-        background: #f7f7f7;
+    }
+    &__photo {
+      &---info {
+        font-size: 0.87rem;
       }
-      .notice-board-content {
+    }
+    &__video {
+      &--info {
+        font-size: 0.87rem;
+      }
+    }
+    .recommend {
+      &__list {
+        &--item {
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .notice {
+      width: calc(100%);
+      margin: 0 auto;
+      background: #f7f7f7;
+      &__wrap {
         width: 100%;
         max-width: 478px;
         margin: 0 auto;
@@ -316,22 +343,11 @@
         }
       }
     }
-    .photo-info {
-      font-size: 0.87rem;
-    }
-    .video-info {
-      font-size: 0.87rem;
-    }
-    .recommend-content {
-      a {
-        font-size: 0.87rem;
-      }
-    }
   }
 }
 @media (max-width: #{$screen-breakpoint7}) {
   .news {
-    .news-wrapper {
+    .news__wrapper {
       .sub-heading {
         font-size: 1.25rem;
       }
@@ -346,17 +362,19 @@
 }
 @media (max-width: #{$screen-breakpoint8}) {
   .news {
-    &-inner {
+    &__inner {
       > div {
         width: 100%;
       }
-      .news-wrapper {
-        height: 400px;
-      }
-      .recommend-info-wrapper {
-        margin-top: 2em;
-      }
-      .notice-board-content {
+    }
+    &__wrapper {
+      height: 400px;
+    }
+    &__recommend {
+      margin-top: 2em;
+    }
+    .notice {
+      &__wrap {
         box-sizing: border-box;
         padding: 2em 0.62em;
       }
@@ -365,20 +383,20 @@
 }
 @media (max-width: #{$screen-breakpoint9}) {
   .news {
-    &-inner {
+    &__inner {
       padding: 0 4px;
     }
-    .news-wrapper {
+    &__wrapper {
       .sub-heading {
         font-size: 1.1rem;
       }
     }
-    .recommend-info-wrapper {
+    &__recommend {
       .sub-heading {
         font-size: 1.1rem;
       }
     }
-    .notice-board-wrapper {
+    .notice {
       .sub-heading {
         font-size: 1.1rem;
       }
