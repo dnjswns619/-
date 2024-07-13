@@ -183,7 +183,7 @@ window.addEventListener('load', () => {
     swiperPlay2.style.display = 'none';
   })
   
-  var swiper3 = new Swiper(".policy-slider", {
+  var swiper3 = new Swiper(".policy__slider", {
     slidesPerView: 4,
     spaceBetween: 30,
     navigation: {
@@ -211,7 +211,7 @@ window.addEventListener('load', () => {
     },
   });
 
-  var swiper4 = new Swiper(".sns-slider", {
+  var swiper4 = new Swiper(".sns__slider", {
     slidesPerView: 4,
     spaceBetween: 30,
     navigation: {
