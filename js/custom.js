@@ -15,85 +15,110 @@ window.addEventListener('load', () => {
   const mainMenu = document.querySelectorAll('.gnb__item--link');
   const subMenu = document.querySelectorAll('.lnb');
   const searchBtn = document.querySelector('.search__btn');
-  for (let i = 0; i < mainMenu.length; i++) {
-    mainMenu[i].addEventListener('mouseover', () => {
-      mainMenu[i].classList.add('active-menu');
-    })
-    mainMenu[i].addEventListener('focusin', () => {
-      if (i > 0) {
-        document.querySelector('.active-menu').classList.remove('active-menu');
+  mainMenu.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
+      if(activeMenu.length !== 0) {
+        activeMenu.forEach((active) => {
+          active.classList.remove("active-menu");
+        })
+        item.classList.add("active-menu");
+      } else {
+        item.classList.add("active-menu");
       }
-      mainMenu[i].classList.add('active-menu');
     })
-    subMenu[i].addEventListener('mouseover', () => {
-      mainMenu[i].classList.add('active-menu');
+    item.addEventListener("focusin", () => {
+      const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
+      if(activeMenu.length !== 0) {
+        activeMenu.forEach((active) => {
+          active.classList.remove("active-menu");
+        })
+        item.classList.add("active-menu");
+      } else {
+        item.classList.add("active-menu");
+      }
     })
-    mainMenu[i].addEventListener('mouseleave', () => {
-      mainMenu[i].classList.remove('active-menu');
+    item.addEventListener("mouseleave", () => {
+      item.classList.remove("active-menu");
     })
-    subMenu[i].addEventListener('mouseleave', () => {
-      mainMenu[i].classList.remove('active-menu');
+  })
+  subMenu.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      item.previousElementSibling.classList.add("active-menu");
     })
-  }
+    item.addEventListener("focusin", () => {
+      item.previousElementSibling.classList.add("active-menu");
+    })
+    item.addEventListener("mouseleave", () => {
+      const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
+      if(activeMenu.length !== 0) {
+        activeMenu.forEach((active) => {
+          active.classList.remove("active-menu");
+        })
+      }
+    })
+  })
+
   searchBtn.addEventListener('focusin', () => {
     document.querySelector('.active-menu').classList.remove('active-menu');   
   })
 
   //notice-reports section 제목 누르면 컨텐츠 보이기
   //notice
-  let noticeTitle = document.querySelectorAll('.notice__title');
-  let noticeText = document.querySelectorAll('.notice__text');
-  for (let i = 0; i < noticeTitle.length; i++) {
-    noticeTitle[i].addEventListener('click', () => {
+  const noticeTitle = document.querySelectorAll('.notice__title');
+  const noticeText = document.querySelectorAll('.notice__text');
+  noticeTitle.forEach((item, idx) => {
+    item.addEventListener('click', () => {
       document.querySelector('.active-notice-heading').classList.remove('active-notice-heading');
-      noticeTitle[i].classList.add('active-notice-heading');
+      item.classList.add('active-notice-heading');
       document.querySelector('.active-notice').classList.remove('active-notice');
-      noticeText[i].classList.add('active-notice');
+      noticeText[idx].classList.add('active-notice');
     })
-  }
+  })
+
   //reports
-  let reportsTitle = document.querySelectorAll('.reports__title');
-  let reportsText = document.querySelectorAll('.reports__content');
-  for (let i = 0; i < reportsTitle.length; i++) {
-    reportsTitle[i].addEventListener('click', () => {
+  const reportsTitle = document.querySelectorAll('.reports__title');
+  const reportsText = document.querySelectorAll('.reports__content');
+  reportsTitle.forEach((item, idx) => {
+    item.addEventListener('click', () => {
       document.querySelector('.active-reports-heading').classList.remove('active-reports-heading');
-      reportsTitle[i].classList.add('active-reports-heading');
+      item.classList.add('active-reports-heading');
       document.querySelector('.active-report').classList.remove('active-report');
-      reportsText[i].classList.add('active-report');
+      reportsText[idx].classList.add('active-report');
     })
-  }
+  })
 
   //news section 제목 누르면 컨텐츠 보이기
-  let newsTitle = document.querySelectorAll('.news-title');
-  let newsText = document.querySelectorAll('.news-content');
-  for (let i = 0; i < newsTitle.length; i++) {
-    newsTitle[i].addEventListener('click', () => {
+  const newsTitle = document.querySelectorAll('.news__title');
+  const newsText = document.querySelectorAll('.news__content');
+  newsTitle.forEach((item, idx) => {
+    item.addEventListener('click', () => {
       document.querySelector('.active-news-heading').classList.remove('active-news-heading');
-      newsTitle[i].classList.add('active-news-heading');
+      item.classList.add('active-news-heading');
       document.querySelector('.active-news').classList.remove('active-news');
-      newsText[i].classList.add('active-news');
+      newsText[idx].classList.add('active-news');
     })
-  }
+  })
 
   // policy-sns section 제목 누르면 컨텐츠 보이기
-  let policySnsTitle = document.querySelectorAll('.policy-sns-title');
-  let policySnsText = document.querySelectorAll('.policy-sns-content');
-  for (let i = 0; i < policySnsTitle.length; i++) {
-    policySnsTitle[i].addEventListener('click', () => {
+  const policySnsTitle = document.querySelectorAll('.policy-sns__title');
+  const policySnsText = document.querySelectorAll('.policy-sns__content');
+  policySnsTitle.forEach((item, idx) => {
+    item.addEventListener('click', () => {
       document.querySelector('.active-policy-heading').classList.remove('active-policy-heading');
-      policySnsTitle[i].classList.add('active-policy-heading');
+      item.classList.add('active-policy-heading');
       document.querySelector('.active-policy').classList.remove('active-policy');
-      policySnsText[i].classList.add('active-policy');
+      policySnsText[idx].classList.add('active-policy');
     })
-  }
+  })
   
   // mobile-menu 컨텐츠 보이기
-  let mobileTrigger = document.querySelector('.m-nav__trigger');
+  const mobileTrigger = document.querySelector('.m-nav__trigger');
   mobileTrigger.addEventListener('click', () => {
     document.body.classList.add('active-m-menu');
   })
   // mobile-menu 닫기
-  let closeBtn = document.querySelector('.close-btn');
+  const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     document.body.classList.remove('active-m-menu');
   })

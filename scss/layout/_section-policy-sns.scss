@@ -4,11 +4,11 @@
 .policy-sns {
   height: 454px;
   &__inner {
+    overflow: hidden;
     position: relative;
     max-width: 1500px;
     height: 100%;
     margin: 50px auto;
-    overflow: hidden;
   }
   &__title {
     display: inline-block;
@@ -18,8 +18,8 @@
     .sub-heading {
       @include sub-heading-style;
       &:hover {
-        color: #111;
         position: relative;
+        color: #111;
         &::after {
           @include heading-after-style;
         }
@@ -28,9 +28,9 @@
   }
   &__content {
     &--text {
-      box-sizing: border-box;
       display: block;
       padding: 1em 1em 2.5em;
+      box-sizing: border-box;
       .text {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -40,27 +40,27 @@
       }
     }
     .swiper-button-prev {
+      left: -2.5em;
       background: url(../images/sprite_img01.png) no-repeat;
       background-position: -20rem -4.3rem;
-      left: -2.5em;
     }
     .swiper-button-next {
+      right: -2.5em;
       background: url(../images/sprite_img01.png) no-repeat;
       background-position: -21.5rem -4.3rem;
-      right: -2.5em;
     }
   }
   .policy {
     display: none;
-    width: 100%;
     position: absolute;
     top: 4em;
+    width: 100%;
     .swiper-slide {
       width: 25%;
       border: 1px solid #e3e3e3;
       a {
-        color: #222;
         height: 290px;
+        color: #222;
         &:hover {
           text-decoration: underline;
         }
@@ -75,17 +75,17 @@
     position: absolute;
     top: 4em;
     .sns__slider {
+      overflow: hidden;
       width: 100%;
       max-width: 1500px;
-      overflow: hidden;
     }
     .swiper-slide {
       border: 1px solid #e3e3e3;
       a {
+        overflow: hidden;
         display: block;
         position: relative;
         height: 290px;
-        overflow: hidden;
         color: #222;
         &:hover {
           text-decoration: underline;
@@ -98,9 +98,9 @@
     &__text {
       &--tit {
         display: block;
+        padding-bottom: 1em;
         color: #000;
         font-weight: 500;
-        padding-bottom: 1em;
       }
       &--description {
         overflow: hidden;
@@ -117,12 +117,12 @@
     }
     &__icon {
       display: block;
-      width: 27px;
-      height: 27px;
-      background: url(../images/sprite_img01.png) no-repeat;
       position: absolute;
       bottom: 0.5em;
       right: 1em;
+      width: 27px;
+      height: 27px;
+      background: url(../images/sprite_img01.png) no-repeat;
       &.blog-icon {
         background-position: 0 -160px;
       }
@@ -147,9 +147,9 @@
       display: flex;
       justify-content: space-between;
       p {
-        color: #555;
         margin: 0;
         padding: 0.5em 1em;
+        color: #555;
         font-size: 1.1rem;
       }
     }
