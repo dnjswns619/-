@@ -9,6 +9,16 @@
     clear: both;
   }
 }
+@mixin flex-spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @mixin sub-heading-style {
   color: #555;
   display: inline-block;

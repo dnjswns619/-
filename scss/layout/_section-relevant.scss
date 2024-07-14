@@ -5,11 +5,11 @@
   height: 292px;
   background: #e7f0f9 url(../images/bg_pattern_bottom.png);
   &__inner {
+    display: flex;
+    justify-content: space-between;
     max-width: 1500px;
     height: 100%;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
   }
   &__banner {
     display: block;
@@ -49,18 +49,18 @@
       }
     }
     &--submit {
-      text-align: center;
       display: block;
       width: 50px;
       height: 37px;
-      line-height: 37px;
       background: #6c7e90;
       color: #fff;
+      line-height: 37px;
+      text-align: center;
     }
     &--slider {
+      position: relative;
       width: 1030px;
       margin: 2.5rem auto;
-      position: relative;
       .swiper-button-prev {
         @include relevant-slide-btn;
         background-position: -450px 0;
@@ -120,24 +120,24 @@
     &__inner {
       display: block;
       overflow: hidden;
+      @include clear;
     }
     &__banner {
       width: 48%;
       height: 292px;
       float: left;
-      @include clear;
       margin-bottom: 2.5rem;
     }
     &__sites {
       width: 100%;
+      @include clear;
       &--select {
-        width: 48%;
-        height: 292px;
         float: right;
         justify-content: center;
         flex-direction: column;
+        width: 48%;
+        height: 292px;
         margin-top: 0;
-        @include clear;
         .affiliated-institution-select {
           width: 100%;
           margin-bottom: 1.5em;

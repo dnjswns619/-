@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="문화체육관광부 누리집에 오신 것을 환영합니다., 문화공영, 문화번영, 문화예술, 콘텐츠, 케이컬처, k-culture, 문화매력국가, 문화강국, 스포츠, 전통문화, 한류">
+  <meta name="description" content="국민과 함께하는 세계일류 문화매력국가">
   <title>문화체육관광부 누리집에 오신 것을 환영합니다. | 문화체육관광부</title>
   <!-- swiper-slider -->
   <link rel="stylesheet" href="./js/swiper-4.5.1/swiper.min.css">
@@ -14,6 +16,12 @@
   <script src="./js/custom.js"></script>
 </head>
 <body>
+  <div class="skip">
+    <ul>
+      <li><a href="#main">본문 바로가기</a></li>
+      <li><a href="#gnb">주매뉴 바로가기</a></li>
+    </ul>
+  </div>
   <div class="container">
     <!-- header -->
     <header class="header">
@@ -70,7 +78,7 @@
             <p class="hidden">국정과제 새창으로 열기</p>
           </a>
         </div>
-        <div class="header__menu--gnb gnb pc-nav-wrapper">
+        <nav id="gnb" class="header__menu--gnb gnb pc-nav-wrapper">
           <ul class="gnb__wrap">
             <li class="gnb__item">
               <a href="" class="gnb__item--link">정보공개</a>
@@ -497,7 +505,7 @@
               </div>
             </li>
           </ul>
-        </div>
+        </nav>
         <div class="header__menu--search search">
           <input type="text" name="" id="search__text" class="search__input" placeholder="검색어를 입력하세요" title="검색어 입력창">
           <button class="search__btn">
@@ -990,7 +998,7 @@
     </header>
 
     <!-- section : main-slide -->
-    <section class="main-slide">
+    <section id="main" class="main-slide">
       <div class="swiper main news-slider">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -1236,7 +1244,7 @@
         </div>
         <div class="news__recommend recommend">
           <h2>
-            <a href="javascript:void(0);" class="sub-heading">추천정보</a>
+            <span class="sub-heading">추천정보</span>
           </h2>
           <div class="recommend__wrap">
             <ul class="recommend__list">
@@ -1282,7 +1290,7 @@
         <div class="news__notice notice">
           <div class="notice__wrap">
             <h2>
-              <a href="javascript:void(0);" class="sub-heading">알림판</a>
+              <span class="sub-heading">알림판</span>
             </h2>
             <div class="swiper notice__slider">
               <div class="swiper-wrapper">

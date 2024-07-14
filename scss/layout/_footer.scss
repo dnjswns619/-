@@ -3,18 +3,18 @@
 /* footer */
 .footer {
   &__inner {
-    max-width: 1500px;
-    margin: 2em auto 4em;
     display: flex;
     justify-content: space-between;
+    max-width: 1500px;
+    margin: 2em auto 4em;
   }
   &__left {
     display: flex;
     justify-content: space-between;
     width: 75%;
     &--wrap {
-      padding-left: 1rem;
       width: 80%;
+      padding-left: 1rem;
     }
     &--links {
       a {
@@ -22,9 +22,9 @@
         color: #333;
         font-size: 1.1rem;
         &:first-child {
+          padding-left: 0;
           color: #000;
           text-decoration: underline;
-          padding-left: 0;
         }
         &:hover {
           text-decoration: underline;
@@ -39,7 +39,6 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        display: block;
         width: 1px;
         height: 15px;
         background: #cacaca;
