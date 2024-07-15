@@ -205,7 +205,7 @@
       }
     }
     &__list {
-      width: 16%;
+      width: 16.5%;
       &--link {
         display: inline-block;
         margin-bottom: 1em;
@@ -354,6 +354,7 @@
           height: 30px;
           background: url(../images/menu.png) center / contain no-repeat;
           border: none;
+          cursor: pointer;
         }
       }
       &__searchBtn {
@@ -363,6 +364,7 @@
         background: url(../images/sprite_img01.png) no-repeat;
         background-position: -280px -130px;
         border: none;
+        cursor: pointer;
       }
       &__utill {
         display: flex;
@@ -575,6 +577,7 @@
       position: relative;
       width: 50px;
       height: 50px;
+      margin-left: auto;
       background: #4f6280;
       border: none;
       cursor: pointer;
