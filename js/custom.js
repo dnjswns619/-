@@ -15,39 +15,32 @@ window.addEventListener('load', () => {
   const mainMenu = document.querySelectorAll('.gnb__item--link');
   const subMenu = document.querySelectorAll('.lnb');
   const searchBtn = document.querySelector('.search__btn');
+  const setActiveMenu = (item) => {
+    const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
+    if(activeMenu.length !== 0) {
+      activeMenu.forEach((active) => {
+        active.classList.remove("active-menu");
+      })
+      item.classList.add("active-menu");
+    } else {
+      item.classList.add("active-menu");
+    }
+  }
   mainMenu.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
-      if(activeMenu.length !== 0) {
-        activeMenu.forEach((active) => {
-          active.classList.remove("active-menu");
-        })
-        item.classList.add("active-menu");
-      } else {
-        item.classList.add("active-menu");
-      }
-    })
-    item.addEventListener("focusin", () => {
-      const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
-      if(activeMenu.length !== 0) {
-        activeMenu.forEach((active) => {
-          active.classList.remove("active-menu");
-        })
-        item.classList.add("active-menu");
-      } else {
-        item.classList.add("active-menu");
-      }
+    ["mouseenter", "foucsin"].forEach((event) => {
+      item.addEventListener(event, () => {
+        setActiveMenu(item)
+      })
     })
     item.addEventListener("mouseleave", () => {
       item.classList.remove("active-menu");
     })
   })
   subMenu.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      item.previousElementSibling.classList.add("active-menu");
-    })
-    item.addEventListener("focusin", () => {
-      item.previousElementSibling.classList.add("active-menu");
+    ["mouseenter", "focusin"].forEach((event) => {
+      item.addEventListener(event, () => {
+        item.previousElementSibling.classList.add("active-menu");
+      })
     })
     item.addEventListener("mouseleave", () => {
       const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
@@ -63,54 +56,30 @@ window.addEventListener('load', () => {
     document.querySelector('.active-menu').classList.remove('active-menu');   
   })
 
-  //notice-reports section 제목 누르면 컨텐츠 보이기
-  //notice
-  const noticeTitle = document.querySelectorAll('.notice__title');
-  const noticeText = document.querySelectorAll('.notice__text');
-  noticeTitle.forEach((item, idx) => {
-    item.addEventListener('click', () => {
-      document.querySelector('.active-notice-heading').classList.remove('active-notice-heading');
-      item.classList.add('active-notice-heading');
-      document.querySelector('.active-notice').classList.remove('active-notice');
-      noticeText[idx].classList.add('active-notice');
+  //제목 눌렀을때 해당 컨텐츠 보이기
+  const setActiveContent = (tileSelector, textSelector, activeHeadingClass, activeContentClass) => {
+    const titles = document.querySelectorAll(tileSelector);
+    const contents = document.querySelectorAll(textSelector);
+    titles.forEach((item, idx) => {
+      item.addEventListener("click", () => {
+        document.querySelector(`.${activeHeadingClass}`).classList.remove(activeHeadingClass);
+        item.classList.add(activeHeadingClass);
+        document.querySelector(`.${activeContentClass}`).classList.remove(activeContentClass);
+        contents[idx].classList.add(activeContentClass);
+      })
     })
-  })
+  }
+  //notice
+  setActiveContent(".notice__title", ".notice__text", "active-notice-heading", "active-notice")
 
   //reports
-  const reportsTitle = document.querySelectorAll('.reports__title');
-  const reportsText = document.querySelectorAll('.reports__content');
-  reportsTitle.forEach((item, idx) => {
-    item.addEventListener('click', () => {
-      document.querySelector('.active-reports-heading').classList.remove('active-reports-heading');
-      item.classList.add('active-reports-heading');
-      document.querySelector('.active-report').classList.remove('active-report');
-      reportsText[idx].classList.add('active-report');
-    })
-  })
+  setActiveContent(".reports__title", ".reports__content", "active-reports-heading", "active-report");
 
   //news section 제목 누르면 컨텐츠 보이기
-  const newsTitle = document.querySelectorAll('.news__title');
-  const newsText = document.querySelectorAll('.news__content');
-  newsTitle.forEach((item, idx) => {
-    item.addEventListener('click', () => {
-      document.querySelector('.active-news-heading').classList.remove('active-news-heading');
-      item.classList.add('active-news-heading');
-      document.querySelector('.active-news').classList.remove('active-news');
-      newsText[idx].classList.add('active-news');
-    })
-  })
+  setActiveContent(".news__title", ".news__content", "active-news-heading", "active-news");
 
   // policy-sns section 제목 누르면 컨텐츠 보이기
-  const policySnsTitle = document.querySelectorAll('.policy-sns__title');
-  const policySnsText = document.querySelectorAll('.policy-sns__content');
-  policySnsTitle.forEach((item, idx) => {
-    item.addEventListener('click', () => {
-      document.querySelector('.active-policy-heading').classList.remove('active-policy-heading');
-      item.classList.add('active-policy-heading');
-      document.querySelector('.active-policy').classList.remove('active-policy');
-      policySnsText[idx].classList.add('active-policy');
-    })
-  })
+  setActiveContent(".policy-sns__title", ".policy-sns__content", "active-policy-heading", "active-policy");;
   
   // mobile-menu 컨텐츠 보이기
   const mobileTrigger = document.querySelector('.m-nav__trigger');
