@@ -43,7 +43,7 @@
 } 
 @mixin active-heading-style {
   position: relative;
-    a {
+    button {
       color: #111;
       position: relative;
       &::after {

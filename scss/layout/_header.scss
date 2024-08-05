@@ -67,31 +67,52 @@
       }
       .language {
         &__item {
-          padding: 0.8em 2em 0.8em 1em;
           &--default {
             position: relative;
             border-right: 1px solid #8c9bb3;
             color: #fff;
-            &:hover {
-              text-decoration: underline;
+            .current-language {
+              position: relative;
+              padding: 0.8em 1.75em 0.8em 0.65em;
+              color: #fff;
+              box-sizing: border-box;
+              background-color: transparent;
+              font-size: 1rem;
+              &:hover {
+                text-decoration: underline;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0.5em;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 15px;
+                height: 8px;
+                background: url(../images/bg_lang.png) no-repeat;
+              } 
             }
-            &::after {
-              content: "";
-              position: absolute;
-              right: 0.5em;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 15px;
-              height: 8px;
-              background: url(../images/bg_lang.png) no-repeat;
-            } 
+          }
+          
+          button {
+            color: #4f6280;
+          }
+          &--eng,
+          &--china {
+            border-top: none;
+            border-bottom: 1px dotted #8191aa;
+          }
+          &--japan {
+            border-top: none;
           }
           &--hide {
             z-index: 10;
             display: none;
+            padding: 0.8em 1em;
             background-color: #fff;
             border: 1px solid #8191aa;
-            a {
+            button {
+              background-color: #fff;
               color: #4f6280;
             }
           }
@@ -404,10 +425,10 @@
               display: block;
               .current-language {
                 position: relative;
-                height: 50px;
-                padding: 0 1.5em 0 0.62em;
+                padding: 0.8em 2em 0.8em 0.65em;
+                background-color: transparent;
+                font-size: 0.75rem;
                 color: #293233;
-                line-height: 50px;
                 box-sizing: border-box;
                 &:hover {
                   text-decoration: underline;
@@ -415,7 +436,7 @@
                 &::after {
                   content: "";
                   position: absolute;
-                  right: 0;
+                  right: 0.5em;
                   top: 50%;
                   transform: translateY(-50%);
                   width: 15px;
@@ -424,16 +445,16 @@
                 } 
               }
             }
-            a {
-              color: #4f6280;
-            }
-            &--eng,
-            &--china {
-              border-top: none;
-              border-bottom: 1px dotted #8191aa;
-            }
-            &--japan {
-              border-top: none;
+            &--hide {
+              z-index: 10;
+              display: none;
+              padding: 0.8em 1em;
+              background-color: #fff;
+              border: 1px solid #8191aa;
+              button {
+                background-color: #fff;
+                color: #4f6280;
+              }
             }
           }
         }

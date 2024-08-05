@@ -107,6 +107,13 @@ a:focus {
   text-decoration: none;
 }
 
+button {
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 h1,
 h2,
 h3,
@@ -207,18 +214,23 @@ strong {
 .header .utill__link--language.block li {
   display: block;
 }
-.header .utill__link .language__item {
-  padding: 0.8em 2em 0.8em 1em;
-}
 .header .utill__link .language__item--default {
   position: relative;
   border-right: 1px solid #8c9bb3;
   color: #fff;
 }
-.header .utill__link .language__item--default:hover {
+.header .utill__link .language__item--default .current-language {
+  position: relative;
+  padding: 0.8em 1.75em 0.8em 0.65em;
+  color: #fff;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-size: 1rem;
+}
+.header .utill__link .language__item--default .current-language:hover {
   text-decoration: underline;
 }
-.header .utill__link .language__item--default::after {
+.header .utill__link .language__item--default .current-language::after {
   content: "";
   position: absolute;
   right: 0.5em;
@@ -228,13 +240,25 @@ strong {
   height: 8px;
   background: url(../images/bg_lang.png) no-repeat;
 }
+.header .utill__link .language__item button {
+  color: #4f6280;
+}
+.header .utill__link .language__item--eng, .header .utill__link .language__item--china {
+  border-top: none;
+  border-bottom: 1px dotted #8191aa;
+}
+.header .utill__link .language__item--japan {
+  border-top: none;
+}
 .header .utill__link .language__item--hide {
   z-index: 10;
   display: none;
+  padding: 0.8em 1em;
   background-color: #fff;
   border: 1px solid #8191aa;
 }
-.header .utill__link .language__item--hide a {
+.header .utill__link .language__item--hide button {
+  background-color: #fff;
   color: #4f6280;
 }
 .header .utill__link .language__item--eng, .header .utill__link .language__item--china {
@@ -511,10 +535,10 @@ strong {
   }
   .header .m-nav .utill .language__item--default .current-language {
     position: relative;
-    height: 50px;
-    padding: 0 1.5em 0 0.62em;
+    padding: 0.8em 2em 0.8em 0.65em;
+    background-color: transparent;
+    font-size: 0.75rem;
     color: #293233;
-    line-height: 50px;
     box-sizing: border-box;
   }
   .header .m-nav .utill .language__item--default .current-language:hover {
@@ -523,22 +547,23 @@ strong {
   .header .m-nav .utill .language__item--default .current-language::after {
     content: "";
     position: absolute;
-    right: 0;
+    right: 0.5em;
     top: 50%;
     transform: translateY(-50%);
     width: 15px;
     height: 8px;
     background: url(../images/bg_lang.png) no-repeat;
   }
-  .header .m-nav .utill .language__item a {
+  .header .m-nav .utill .language__item--hide {
+    z-index: 10;
+    display: none;
+    padding: 0.8em 1em;
+    background-color: #fff;
+    border: 1px solid #8191aa;
+  }
+  .header .m-nav .utill .language__item--hide button {
+    background-color: #fff;
     color: #4f6280;
-  }
-  .header .m-nav .utill .language__item--eng, .header .m-nav .utill .language__item--china {
-    border-top: none;
-    border-bottom: 1px dotted #8191aa;
-  }
-  .header .m-nav .utill .language__item--japan {
-    border-top: none;
   }
   .header .m-nav__gnb {
     z-index: 9;
@@ -1014,6 +1039,7 @@ strong {
 .notice-reports .sub-heading {
   color: #555;
   display: inline-block;
+  font-size: inherit;
 }
 .notice-reports .sub-heading:not(.first) {
   padding-left: 1.5em;
@@ -1052,11 +1078,11 @@ strong {
 .notice-reports .notice__title.active-notice-heading {
   position: relative;
 }
-.notice-reports .notice__title.active-notice-heading a {
+.notice-reports .notice__title.active-notice-heading button {
   color: #111;
   position: relative;
 }
-.notice-reports .notice__title.active-notice-heading a::after {
+.notice-reports .notice__title.active-notice-heading button::after {
   content: "";
   display: block;
   width: 30px;
@@ -1126,11 +1152,11 @@ strong {
 .notice-reports .reports__title.active-reports-heading {
   position: relative;
 }
-.notice-reports .reports__title.active-reports-heading a {
+.notice-reports .reports__title.active-reports-heading button {
   color: #111;
   position: relative;
 }
-.notice-reports .reports__title.active-reports-heading a::after {
+.notice-reports .reports__title.active-reports-heading button::after {
   content: "";
   display: block;
   width: 30px;
@@ -1292,11 +1318,11 @@ strong {
 .news__title.active-news-heading {
   position: relative;
 }
-.news__title.active-news-heading a {
+.news__title.active-news-heading button {
   color: #111;
   position: relative;
 }
-.news__title.active-news-heading a::after {
+.news__title.active-news-heading button::after {
   content: "";
   display: block;
   width: 30px;
@@ -1792,11 +1818,11 @@ strong {
 .policy-sns__title.active-policy-heading {
   position: relative;
 }
-.policy-sns__title.active-policy-heading a {
+.policy-sns__title.active-policy-heading button {
   color: #111;
   position: relative;
 }
-.policy-sns__title.active-policy-heading a::after {
+.policy-sns__title.active-policy-heading button::after {
   content: "";
   display: block;
   width: 30px;

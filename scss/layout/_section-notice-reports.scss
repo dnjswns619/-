@@ -16,6 +16,7 @@
   }
   .sub-heading {
     @include sub-heading-style;
+    font-size: inherit;
     &:hover {
       position: relative;
       color: #111;
