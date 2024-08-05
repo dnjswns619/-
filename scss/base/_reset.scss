@@ -37,7 +37,13 @@ a:hover,
 a:focus {
     text-decoration: none;
 }
-
+// 버튼 초기화
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
 // 스타일 초기화
 h1,
 h2,
