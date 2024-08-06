@@ -108,7 +108,6 @@ a:focus {
 }
 
 button {
-  outline: none;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -2279,6 +2278,7 @@ strong {
 .relevant-slider .swiper-wrapper .swiper-slide {
   background: #fff;
   height: 55px;
+  padding: 2px;
 }
 .relevant-slider .swiper-wrapper .swiper-slide a {
   display: block;
