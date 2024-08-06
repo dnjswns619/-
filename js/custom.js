@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
   // gnb hover시 서브메뉴창 보이기
   const mainMenu = document.querySelectorAll('.gnb__item--link');
   const subMenu = document.querySelectorAll('.lnb');
-  const searchBtn = document.querySelector('.search__btn');
+  const lastLnb = document.querySelector(".lastLnb")
   const setActiveMenu = (item) => {
     const activeMenu = document.querySelectorAll(".pc-nav-wrapper .active-menu");
     if(activeMenu.length !== 0) {
@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
     }
   }
   mainMenu.forEach((item) => {
-    ["mouseenter", "foucsin"].forEach((event) => {
+    ["mouseenter", "focus"].forEach((event) => {
       item.addEventListener(event, () => {
         setActiveMenu(item)
       })
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
     })
   })
   subMenu.forEach((item) => {
-    ["mouseenter", "focusin"].forEach((event) => {
+    ["mouseenter", "focus"].forEach((event) => {
       item.addEventListener(event, () => {
         item.previousElementSibling.classList.add("active-menu");
       })
@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
     })
   })
 
-  searchBtn.addEventListener('focusin', () => {
+  lastLnb.addEventListener('blur', () => {
     document.querySelector('.active-menu').classList.remove('active-menu');   
   })
 
