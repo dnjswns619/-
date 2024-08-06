@@ -1834,6 +1834,7 @@ strong {
 .policy-sns__title .sub-heading {
   color: #555;
   display: inline-block;
+  font-size: inherit;
 }
 .policy-sns__title .sub-heading:not(.first) {
   padding-left: 1.5em;
