@@ -54,7 +54,7 @@
     &__content {
       @include reports-content-style;
       &.active-report {
-        display: flex;
+        display: grid;
       }
     }
     &__text {
