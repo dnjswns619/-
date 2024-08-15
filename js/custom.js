@@ -1,18 +1,32 @@
 window.addEventListener('load', () => {
   // header language클릭시 다른 언어 list 보이기
-  const currentLanguage = document.querySelector('.language__item--default');
-  const languageLists = document.querySelector('.utill__link--language');
-  const mCurrentLanguage = document.querySelector('.m-nav .current-language');
-  const mLanguageLists = document.querySelector('.m-nav .utill__link--language');
+  const currentLanguage = document.querySelector('.header__utill .language__btn');
+  const languageLists = document.querySelector('.language__lists');
+  const mCurrentLanguage = document.querySelector('.m-nav .language__btn');
+  const mLanguageLists = document.querySelector('.m-nav .language__lists');
+  const ariaList = ["aria-expanded", "aria-pressed"];
+  let languageAriaState = false;
+  let mobileLanguageAriaState = false;
+  
+  const toggleAriaState = (element, ariaState) => {
+    ariaList.forEach(aria => {
+      element.setAttribute(aria, ariaState ? "false" : "true");
+    });
+    return !ariaState;
+  };
+  
   currentLanguage.addEventListener('click', () => {
     languageLists.classList.toggle("block");
-  })
+    languageAriaState = toggleAriaState(currentLanguage, languageAriaState);
+  });
+  
   mCurrentLanguage.addEventListener('click', () => {
     mLanguageLists.classList.toggle('block');
-  })
+    mobileLanguageAriaState = toggleAriaState(mCurrentLanguage, mobileLanguageAriaState);
+  });
 
   // gnb hover시 서브메뉴창 보이기
-  const mainMenu = document.querySelectorAll('.gnb__item--link');
+  const mainMenu = document.querySelectorAll('.gnb__link');
   const subMenu = document.querySelectorAll('.lnb');
   const lastLnb = document.querySelector(".lastLnb")
   const setActiveMenu = (item) => {
@@ -57,8 +71,8 @@ window.addEventListener('load', () => {
   })
 
   //제목 눌렀을때 해당 컨텐츠 보이기
-  const setActiveContent = (tileSelector, textSelector, activeHeadingClass, activeContentClass) => {
-    const titles = document.querySelectorAll(tileSelector);
+  const setActiveContent = (titleSelector, textSelector, activeHeadingClass, activeContentClass) => {
+    const titles = document.querySelectorAll(titleSelector);
     const contents = document.querySelectorAll(textSelector);
     titles.forEach((item, idx) => {
       item.addEventListener("click", () => {
@@ -69,17 +83,38 @@ window.addEventListener('load', () => {
       })
     })
   }
-  //notice
+  //notice 제목 누르면 컨텐츠 보이기
   setActiveContent(".notice__title", ".notice__text", "active-notice-heading", "active-notice")
-
-  //reports
+  //reports 제목 누르면 컨텐츠 보이기
   setActiveContent(".reports__title", ".reports__content", "active-reports-heading", "active-report");
-
   //news section 제목 누르면 컨텐츠 보이기
   setActiveContent(".news__title", ".news__content", "active-news-heading", "active-news");
-
   // policy-sns section 제목 누르면 컨텐츠 보이기
   setActiveContent(".policy-sns__title", ".policy-sns__content", "active-policy-heading", "active-policy");;
+
+  // 제목 눌렀을때 해당 버튼에 aria-selceted="true"로 변경
+  const setHeadingAria = (element, activeClass) => {
+    const elements = document.querySelectorAll(`.${element}`);
+    const subHeadings = document.querySelectorAll(`.${element} .sub-heading`);
+
+    const updateAriaValue = (idx, state) => {
+      subHeadings[idx].setAttribute("aria-selected", state ? true : false);
+    }
+
+    elements.forEach((element, idx) => {
+      updateAriaValue(idx, element.classList.contains(activeClass));
+
+      element.addEventListener("click", () => {
+        subHeadings.forEach((subHeading, subIdx) => updateAriaValue(subIdx, false));
+        updateAriaValue(idx, element.classList.contains(activeClass))
+
+      })
+    })
+  }
+  setHeadingAria("notice__title", "active-notice-heading");
+  setHeadingAria("reports__title", "active-reports-heading");
+  setHeadingAria("news__title", "active-news-heading");
+  setHeadingAria("policy-sns__title", "active-policy-heading")
   
   // mobile-menu 컨텐츠 보이기
   const mobileTrigger = document.querySelector('.m-nav__trigger');

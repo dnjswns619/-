@@ -16,7 +16,7 @@
     width: 100%;
     height: 50px;
     background-color: #4f6280;
-    &--inner {
+    &-inner {
       display: flex;
       justify-content: space-between;
       max-width: 1500px;
@@ -34,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       height: 50px;
-      &--item {
+      &-item {
         color: #fff;
         padding: 0.8em 1em;
         border-right: 1px solid #8c9bb3;
@@ -59,72 +59,71 @@
       &--language {
         display: flex;
         flex-direction: column;
-        &.block {
-          li {
-            display: block;
-          }
+      }
+    }
+  }
+  .language {
+    &__btn {
+      position: relative;
+      padding: 0.8em 1.75em 0.8em 0.65em;
+      color: #fff;
+      box-sizing: border-box;
+      background-color: transparent;
+      font-size: 1rem;
+      &:hover {
+        text-decoration: underline;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 8px;
+        background: url(../images/bg_lang.png) no-repeat;
+      } 
+    }
+    &__item {
+      &--default {
+        position: relative;
+        border-right: 1px solid #8c9bb3;
+        color: #fff;
+      }
+      &--eng,
+      &--china {
+        border-top: none;
+        border-bottom: 1px dotted #8191aa;
+      }
+      &--japan {
+        border-top: none;
+      }
+      &--hide {
+        padding: 0.8em 1em;
+        background-color: #fff;
+        border: 1px solid #8191aa;
+        button {
+          background-color: #fff;
+          color: #4f6280;
         }
       }
-      .language {
-        &__item {
-          &--default {
-            position: relative;
-            border-right: 1px solid #8c9bb3;
-            color: #fff;
-            .current-language {
-              position: relative;
-              padding: 0.8em 1.75em 0.8em 0.65em;
-              color: #fff;
-              box-sizing: border-box;
-              background-color: transparent;
-              font-size: 1rem;
-              &:hover {
-                text-decoration: underline;
-              }
-              &::after {
-                content: "";
-                position: absolute;
-                right: 0.5em;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 15px;
-                height: 8px;
-                background: url(../images/bg_lang.png) no-repeat;
-              } 
-            }
-          }
-          
-          button {
-            color: #4f6280;
-          }
-          &--eng,
-          &--china {
-            border-top: none;
-            border-bottom: 1px dotted #8191aa;
-          }
-          &--japan {
-            border-top: none;
-          }
-          &--hide {
-            z-index: 10;
-            display: none;
-            padding: 0.8em 1em;
-            background-color: #fff;
-            border: 1px solid #8191aa;
-            button {
-              background-color: #fff;
-              color: #4f6280;
-            }
-          }
-          &--eng,
-          &--china {
-            border-top: none;
-            border-bottom: 1px dotted #8191aa;
-          }
-          &--japan {
-            border-top: none;
-          }
-        }
+      &--eng,
+      &--china {
+        border-top: none;
+        border-bottom: 1px dotted #8191aa;
+      }
+      &--japan {
+        border-top: none;
+      }
+    }
+    &__lists {
+      z-index: 10;
+      display: none;
+      &.block {
+        display: block;
+      }
+      button {
+        color: #4f6280;
       }
     }
   }
@@ -157,29 +156,27 @@
       padding-left: 0;
       margin: 0;
     }
-    &__item {
-      &--link {
-        position: relative;
-        padding: 1em;
-        font-size: 1.3rem;
-        color: #3b3b3b;
-        &:hover {
-          color: #46679f;
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 2em);
-            height: 4px;
-            background-color: #4f6280;
-          }
+    &__link {
+      position: relative;
+      padding: 1em;
+      font-size: 1.3rem;
+      color: #3b3b3b;
+      &:hover {
+        color: #46679f;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: calc(100% - 2em);
+          height: 4px;
+          background-color: #4f6280;
         }
-        &.active-menu ~ .lnb,
-        &:focus ~ .lnb {
-          display: block;
-        }
+      }
+      &.active-menu ~ .lnb,
+      &:focus ~ .lnb {
+        display: block;
       }
     }
   }
@@ -201,28 +198,28 @@
       margin: 0 auto;
       padding: 2em 0;
     }
-    &__gridList {
+    &__gridLists {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      &--item {
-        padding-right: 7em;
+    }
+    &__gridList {
+      padding-right: 7em;
+      margin-bottom: 1em;
+      a {
+        display: inline-block;
         margin-bottom: 1em;
-        a {
-          display: inline-block;
-          margin-bottom: 1em;
-          font-size: 1.25rem;
-          color: #2d4264;
-          &:hover {
-            color: #2a67b3;
-          }
+        font-size: 1.25rem;
+        color: #2d4264;
+        &:hover {
+          color: #2a67b3;
         }
-        &:not(.border-none) {
-          border-left: 1px solid #d9d9d9;
-          padding-left: 2em;
-        }
-        &.border-none {
-          border: none;
-        }
+      }
+      &:not(.border-none) {
+        border-left: 1px solid #d9d9d9;
+        padding-left: 2em;
+      }
+      &.border-none {
+        border: none;
       }
     }
     &__list {
@@ -303,10 +300,8 @@
       padding: 0 1em;
     }
     .gnb {
-      &__item {
-        &--link {
-          padding: 1em 0.5em;
-        }
+      &__link {
+        padding: 1em 0.5em;
       }
       .lnb {
         padding: 0 1rem;
@@ -317,11 +312,9 @@
 @media (max-width: #{$screen-breakpoint3}) {
   .header {
     .gnb {
-      &__item {
-        &--link {
-          padding: 1em 0.35em;
-          font-size: 1.15rem;
-        }
+      &__link {
+        padding: 1em 0.35em;
+        font-size: 1.15rem;
       }
     }
   }
@@ -407,47 +400,35 @@
             margin: 0;
             padding: 0;
             font-size: 0.75rem;
-            &.block {
-              li {
-                display: block;
-              }
-            }
           }
         }
         .language {
+          &__btn {
+            position: relative;
+            padding: 0.8em 2em 0.8em 0.65em;
+            background-color: transparent;
+            font-size: 0.75rem;
+            color: #293233;
+            box-sizing: border-box;
+            &:hover {
+              text-decoration: underline;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0.5em;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 15px;
+              height: 8px;
+              background: url(../images/bg_lang.png) no-repeat;
+            } 
+          }
           &__item {
-            z-index: 10;
-            display: none;
             padding: 0.62em;
             background: #fff;
             border: 1px solid #8191aa;
-            &--default {
-              display: block;
-              .current-language {
-                position: relative;
-                padding: 0.8em 2em 0.8em 0.65em;
-                background-color: transparent;
-                font-size: 0.75rem;
-                color: #293233;
-                box-sizing: border-box;
-                &:hover {
-                  text-decoration: underline;
-                }
-                &::after {
-                  content: "";
-                  position: absolute;
-                  right: 0.5em;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  width: 15px;
-                  height: 8px;
-                  background: url(../images/bg_lang.png) no-repeat;
-                } 
-              }
-            }
             &--hide {
-              z-index: 10;
-              display: none;
               padding: 0.8em 1em;
               background-color: #fff;
               border: 1px solid #8191aa;
@@ -455,6 +436,13 @@
                 background-color: #fff;
                 color: #4f6280;
               }
+            }
+          }
+          &__Lists {
+            z-index: 10;
+            display: none;
+            &.block {
+              display: block;
             }
           }
         }
@@ -481,26 +469,26 @@
           height: 40px;
           background: #4f6280;
           border-bottom: 1px solid #9ba5b5;
-          &--link {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 0.45em 0.9em;
-            color: #fff;
-            box-sizing: border-box;
-            font-size: 1.1rem;
-            &-1 {
-              &:hover {
-                border-top: 1px solid #9ba5b5;
-              }
-            }
+        }
+        &__link {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 0.45em 0.9em;
+          color: #fff;
+          box-sizing: border-box;
+          font-size: 1.1rem;
+          &-1 {
             &:hover {
-              color: #293233;
-              background: #e7f0f9;
-              &::after {
-                display: none;
-              }
+              border-top: 1px solid #9ba5b5;
+            }
+          }
+          &:hover {
+            color: #293233;
+            background: #e7f0f9;
+            &::after {
+              display: none;
             }
           }
         }
@@ -517,16 +505,16 @@
         &__wrap {
           flex-direction: column;
         }
-        &__gridList {
+        &__gridLists {
           grid-template-columns: repeat(1, 1fr);
-          &--item {
-            &:not(.border-none) {
-              padding-left: 0;
-              border-left: none;
-            }
-            &:not(:last-child) {
-              border-bottom: 1px solid #d9d9d9;
-            }
+        }
+        &__gridList {
+          &:not(.border-none) {
+            padding-left: 0;
+            border-left: none;
+          }
+          &:not(:last-child) {
+            border-bottom: 1px solid #d9d9d9;
           }
         }
         &__list {
@@ -549,7 +537,7 @@
           }
         }
       }
-      &__sns {
+      &__sns-wrap {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -559,35 +547,35 @@
         width: 100%;
         height: 75px;
         border-top: 1px solid #d1dce0;
-        .center-box {
-          display: inline-block;
-          margin: 0 auto
-        }
-        .blog {
+      }
+      &__sns {
+        display: inline-block;
+        margin: 0 auto;
+        &--blog {
           @include sns-icon;
           background-position: 0 -130px;
         }
-        .facebook {
+        &--facebook {
           @include sns-icon;
           background-position: -30px -130px;
           margin-left: 0.5em;
         }
-        .twitter {
+        &--twitter {
           @include sns-icon;
           background-position: -60px -130px;
           margin-left: 0.5em;
         }
-        .youtube {
+        &--youtube {
           @include sns-icon;
           background-position: -90px -130px;
           margin-left: 0.5em;
         }
-        .kakaotv {
+        &--kakaotv {
           @include sns-icon;
           background-position: -120px -130px;
           margin-left: 0.5em;
         }
-        .instagram {
+        &--instagram {
           @include sns-icon;
           background-position: -150px -130px;
           margin-left: 0.5em;
@@ -651,10 +639,8 @@
         }
       }
       .gnb {
-        &__item {
-          &--link {
-            font-size: 0.9rem;
-          }
+        &__link {
+          font-size: 0.9rem;
         }
       }
       .lnb {
@@ -670,12 +656,11 @@
             }
           }
         }
+        
         &__gridList {
-          &--item {
-            padding-right: 0;
-            > a {
-              font-size: 0.9rem;
-            }
+          padding-right: 0;
+          > a {
+            font-size: 0.9rem;
           }
         }
       }

@@ -101,7 +101,7 @@
   &__recommend {
     .sub-heading {
       position: relative;
-      color: #555;
+      color: #111;
       &::before {
         @include heading-after-style;
       }
@@ -179,7 +179,7 @@
   &__notice {
     .sub-heading {
       position: relative;
-      color: #555;
+      color: #111;
       &::before {
         @include heading-after-style;
       }

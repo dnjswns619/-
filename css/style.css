@@ -167,7 +167,7 @@ strong {
   height: 50px;
   background-color: #4f6280;
 }
-.header__utill--inner {
+.header__utill-inner {
   display: flex;
   justify-content: space-between;
   max-width: 1500px;
@@ -184,19 +184,19 @@ strong {
   justify-content: space-between;
   height: 50px;
 }
-.header .utill__link--item {
+.header .utill__link-item {
   color: #fff;
   padding: 0.8em 1em;
   border-right: 1px solid #8c9bb3;
 }
-.header .utill__link--item:hover {
+.header .utill__link-item:hover {
   text-decoration: underline;
 }
-.header .utill__link--item.item1 {
+.header .utill__link-item.item1 {
   position: relative;
   border: none;
 }
-.header .utill__link--item.item1::after {
+.header .utill__link-item.item1::after {
   content: "";
   position: absolute;
   right: 0;
@@ -210,15 +210,7 @@ strong {
   display: flex;
   flex-direction: column;
 }
-.header .utill__link--language.block li {
-  display: block;
-}
-.header .utill__link .language__item--default {
-  position: relative;
-  border-right: 1px solid #8c9bb3;
-  color: #fff;
-}
-.header .utill__link .language__item--default .current-language {
+.header .language__btn {
   position: relative;
   padding: 0.8em 1.75em 0.8em 0.65em;
   color: #fff;
@@ -226,10 +218,10 @@ strong {
   background-color: transparent;
   font-size: 1rem;
 }
-.header .utill__link .language__item--default .current-language:hover {
+.header .language__btn:hover {
   text-decoration: underline;
 }
-.header .utill__link .language__item--default .current-language::after {
+.header .language__btn::after {
   content: "";
   position: absolute;
   right: 0.5em;
@@ -239,33 +231,43 @@ strong {
   height: 8px;
   background: url(../images/bg_lang.png) no-repeat;
 }
-.header .utill__link .language__item button {
-  color: #4f6280;
+.header .language__item--default {
+  position: relative;
+  border-right: 1px solid #8c9bb3;
+  color: #fff;
 }
-.header .utill__link .language__item--eng, .header .utill__link .language__item--china {
+.header .language__item--eng, .header .language__item--china {
   border-top: none;
   border-bottom: 1px dotted #8191aa;
 }
-.header .utill__link .language__item--japan {
+.header .language__item--japan {
   border-top: none;
 }
-.header .utill__link .language__item--hide {
-  z-index: 10;
-  display: none;
+.header .language__item--hide {
   padding: 0.8em 1em;
   background-color: #fff;
   border: 1px solid #8191aa;
 }
-.header .utill__link .language__item--hide button {
+.header .language__item--hide button {
   background-color: #fff;
   color: #4f6280;
 }
-.header .utill__link .language__item--eng, .header .utill__link .language__item--china {
+.header .language__item--eng, .header .language__item--china {
   border-top: none;
   border-bottom: 1px dotted #8191aa;
 }
-.header .utill__link .language__item--japan {
+.header .language__item--japan {
   border-top: none;
+}
+.header .language__lists {
+  z-index: 10;
+  display: none;
+}
+.header .language__lists.block {
+  display: block;
+}
+.header .language__lists button {
+  color: #4f6280;
 }
 .header__menu {
   display: flex;
@@ -295,16 +297,16 @@ strong {
   padding-left: 0;
   margin: 0;
 }
-.header .gnb__item--link {
+.header .gnb__link {
   position: relative;
   padding: 1em;
   font-size: 1.3rem;
   color: #3b3b3b;
 }
-.header .gnb__item--link:hover {
+.header .gnb__link:hover {
   color: #46679f;
 }
-.header .gnb__item--link:hover::after {
+.header .gnb__link:hover::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -314,7 +316,7 @@ strong {
   height: 4px;
   background-color: #4f6280;
 }
-.header .gnb__item--link.active-menu ~ .lnb, .header .gnb__item--link:focus ~ .lnb {
+.header .gnb__link.active-menu ~ .lnb, .header .gnb__link:focus ~ .lnb {
   display: block;
 }
 .header .lnb {
@@ -336,28 +338,28 @@ strong {
   margin: 0 auto;
   padding: 2em 0;
 }
-.header .lnb__gridList {
+.header .lnb__gridLists {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
-.header .lnb__gridList--item {
+.header .lnb__gridList {
   padding-right: 7em;
   margin-bottom: 1em;
 }
-.header .lnb__gridList--item a {
+.header .lnb__gridList a {
   display: inline-block;
   margin-bottom: 1em;
   font-size: 1.25rem;
   color: #2d4264;
 }
-.header .lnb__gridList--item a:hover {
+.header .lnb__gridList a:hover {
   color: #2a67b3;
 }
-.header .lnb__gridList--item:not(.border-none) {
+.header .lnb__gridList:not(.border-none) {
   border-left: 1px solid #d9d9d9;
   padding-left: 2em;
 }
-.header .lnb__gridList--item.border-none {
+.header .lnb__gridList.border-none {
   border: none;
 }
 .header .lnb__list {
@@ -430,7 +432,7 @@ strong {
   .header__menu {
     padding: 0 1em;
   }
-  .header .gnb__item--link {
+  .header .gnb__link {
     padding: 1em 0.5em;
   }
   .header .gnb .lnb {
@@ -438,7 +440,7 @@ strong {
   }
 }
 @media (max-width: 1320px) {
-  .header .gnb__item--link {
+  .header .gnb__link {
     padding: 1em 0.35em;
     font-size: 1.15rem;
   }
@@ -519,20 +521,7 @@ strong {
     padding: 0;
     font-size: 0.75rem;
   }
-  .header .m-nav .utill__link--language.block li {
-    display: block;
-  }
-  .header .m-nav .utill .language__item {
-    z-index: 10;
-    display: none;
-    padding: 0.62em;
-    background: #fff;
-    border: 1px solid #8191aa;
-  }
-  .header .m-nav .utill .language__item--default {
-    display: block;
-  }
-  .header .m-nav .utill .language__item--default .current-language {
+  .header .m-nav .utill .language__btn {
     position: relative;
     padding: 0.8em 2em 0.8em 0.65em;
     background-color: transparent;
@@ -540,10 +529,10 @@ strong {
     color: #293233;
     box-sizing: border-box;
   }
-  .header .m-nav .utill .language__item--default .current-language:hover {
+  .header .m-nav .utill .language__btn:hover {
     text-decoration: underline;
   }
-  .header .m-nav .utill .language__item--default .current-language::after {
+  .header .m-nav .utill .language__btn::after {
     content: "";
     position: absolute;
     right: 0.5em;
@@ -553,9 +542,12 @@ strong {
     height: 8px;
     background: url(../images/bg_lang.png) no-repeat;
   }
+  .header .m-nav .utill .language__item {
+    padding: 0.62em;
+    background: #fff;
+    border: 1px solid #8191aa;
+  }
   .header .m-nav .utill .language__item--hide {
-    z-index: 10;
-    display: none;
     padding: 0.8em 1em;
     background-color: #fff;
     border: 1px solid #8191aa;
@@ -563,6 +555,13 @@ strong {
   .header .m-nav .utill .language__item--hide button {
     background-color: #fff;
     color: #4f6280;
+  }
+  .header .m-nav .utill .language__Lists {
+    z-index: 10;
+    display: none;
+  }
+  .header .m-nav .utill .language__Lists.block {
+    display: block;
   }
   .header .m-nav__gnb {
     z-index: 9;
@@ -585,7 +584,7 @@ strong {
     background: #4f6280;
     border-bottom: 1px solid #9ba5b5;
   }
-  .header .m-nav .gnb__item--link {
+  .header .m-nav .gnb__link {
     display: block;
     position: relative;
     width: 100%;
@@ -595,14 +594,14 @@ strong {
     box-sizing: border-box;
     font-size: 1.1rem;
   }
-  .header .m-nav .gnb__item--link-1:hover {
+  .header .m-nav .gnb__link-1:hover {
     border-top: 1px solid #9ba5b5;
   }
-  .header .m-nav .gnb__item--link:hover {
+  .header .m-nav .gnb__link:hover {
     color: #293233;
     background: #e7f0f9;
   }
-  .header .m-nav .gnb__item--link:hover::after {
+  .header .m-nav .gnb__link:hover::after {
     display: none;
   }
   .header .m-nav .lnb {
@@ -618,14 +617,14 @@ strong {
   .header .m-nav .lnb__wrap {
     flex-direction: column;
   }
-  .header .m-nav .lnb__gridList {
+  .header .m-nav .lnb__gridLists {
     grid-template-columns: repeat(1, 1fr);
   }
-  .header .m-nav .lnb__gridList--item:not(.border-none) {
+  .header .m-nav .lnb__gridList:not(.border-none) {
     padding-left: 0;
     border-left: none;
   }
-  .header .m-nav .lnb__gridList--item:not(:last-child) {
+  .header .m-nav .lnb__gridList:not(:last-child) {
     border-bottom: 1px solid #d9d9d9;
   }
   .header .m-nav .lnb__list {
@@ -643,7 +642,7 @@ strong {
   .header .m-nav .lnb__list--sublink li a {
     font-size: 1rem;
   }
-  .header .m-nav__sns {
+  .header .m-nav__sns-wrap {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -654,18 +653,18 @@ strong {
     height: 75px;
     border-top: 1px solid #d1dce0;
   }
-  .header .m-nav__sns .center-box {
+  .header .m-nav__sns {
     display: inline-block;
     margin: 0 auto;
   }
-  .header .m-nav__sns .blog {
+  .header .m-nav__sns--blog {
     display: inline-block;
     width: 27px;
     height: 27px;
     background: url(../images/sprite_img01.png) no-repeat;
     background-position: 0 -130px;
   }
-  .header .m-nav__sns .facebook {
+  .header .m-nav__sns--facebook {
     display: inline-block;
     width: 27px;
     height: 27px;
@@ -673,7 +672,7 @@ strong {
     background-position: -30px -130px;
     margin-left: 0.5em;
   }
-  .header .m-nav__sns .twitter {
+  .header .m-nav__sns--twitter {
     display: inline-block;
     width: 27px;
     height: 27px;
@@ -681,7 +680,7 @@ strong {
     background-position: -60px -130px;
     margin-left: 0.5em;
   }
-  .header .m-nav__sns .youtube {
+  .header .m-nav__sns--youtube {
     display: inline-block;
     width: 27px;
     height: 27px;
@@ -689,7 +688,7 @@ strong {
     background-position: -90px -130px;
     margin-left: 0.5em;
   }
-  .header .m-nav__sns .kakaotv {
+  .header .m-nav__sns--kakaotv {
     display: inline-block;
     width: 27px;
     height: 27px;
@@ -697,7 +696,7 @@ strong {
     background-position: -120px -130px;
     margin-left: 0.5em;
   }
-  .header .m-nav__sns .instagram {
+  .header .m-nav__sns--instagram {
     display: inline-block;
     width: 27px;
     height: 27px;
@@ -752,7 +751,7 @@ strong {
   .header .m-nav .utill__link {
     font-size: 0.6rem;
   }
-  .header .m-nav .gnb__item--link {
+  .header .m-nav .gnb__link {
     font-size: 0.9rem;
   }
   .header .m-nav .lnb__list--link {
@@ -761,10 +760,10 @@ strong {
   .header .m-nav .lnb__list--subLink li a {
     font-size: 0.75rem;
   }
-  .header .m-nav .lnb__gridList--item {
+  .header .m-nav .lnb__gridList {
     padding-right: 0;
   }
-  .header .m-nav .lnb__gridList--item > a {
+  .header .m-nav .lnb__gridList > a {
     font-size: 0.9rem;
   }
   .header .close-btn {
@@ -1431,7 +1430,7 @@ strong {
 }
 .news__recommend .sub-heading {
   position: relative;
-  color: #555;
+  color: #111;
 }
 .news__recommend .sub-heading::before {
   content: "";
@@ -1559,7 +1558,7 @@ strong {
 }
 .news__notice .sub-heading {
   position: relative;
-  color: #555;
+  color: #111;
 }
 .news__notice .sub-heading::before {
   content: "";
