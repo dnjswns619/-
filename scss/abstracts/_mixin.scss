@@ -43,13 +43,13 @@
 } 
 @mixin active-heading-style {
   position: relative;
-    button {
-      color: #111;
-      position: relative;
-      &::after {
-        @include heading-after-style;
-      }
+  button {
+    color: #111;
+    position: relative;
+    &::after {
+      @include heading-after-style;
     }
+  }
 }
 @mixin heading-after-style {
   content: "";
