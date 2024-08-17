@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 1500px;
+    height: 400px;
     margin: 50px auto;
     > div {
       width: 32%;
@@ -36,7 +37,7 @@
   &__content {
     display: none;
     position: absolute;
-    top: 4.7em;
+    bottom: 0;
     width: 100%;
     height: 320px;
     &.active-news {
@@ -44,7 +45,7 @@
     }
   }
   &__photo {
-    &--box {
+    &-box {
       display: block;
       width: inherit;
       height: inherit;
@@ -73,7 +74,7 @@
     @include more-view-btn;
   }
   &__video {
-    &--box {
+    &-box {
       display: block;
       width: inherit;
       height: inherit;
@@ -191,15 +192,22 @@
   .notice {
     &__wrap {
       overflow: hidden;
+      height: 100%;
       h2 { margin: 1em 0; }
+    }
+    .swiper-wrapper {
+      box-sizing: border-box;
     }
     &__slider {
       position: relative;
+      width: 100%;
+      height: 318px;
       border: 1px solid #e3e3e3;
       .swiper-slide {
-        height: 320px;
+        width: 100%;
+        height: 100%;
         img {
-          width: 100%;
+          width: auto;
           height: 100%;
         }
       }
