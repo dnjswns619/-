@@ -115,6 +115,20 @@ window.addEventListener('load', () => {
   setHeadingAria("reports__title", "active-reports-heading");
   setHeadingAria("news__title", "active-news-heading");
   setHeadingAria("policy-sns__title", "active-policy-heading")
+
+  // 슬라이드 포커스 조절
+  function setSlideFocus(element) {
+    const slideConts = document.querySelectorAll(`.${element} .swiper-slide`);
+    console.log(slideConts)
+    slideConts.forEach(slide => {
+      slide.addEventListener("focus", (e) => {
+        const activeSlide = document.querySelector("swiper-slide-active");
+        e.target.classList.contains("swiper-slide-active") ? null : activeSlide.focus
+      })
+    })
+  }
+  setSlideFocus("main");
+  setSlideFocus("news")
   
   // mobile-menu 컨텐츠 보이기
   const mobileTrigger = document.querySelector('.m-nav__trigger');
@@ -127,7 +141,7 @@ window.addEventListener('load', () => {
     document.body.classList.remove('active-m-menu');
   })
 
-  var swiper1 = new Swiper(".news-slider", {
+  const swiper1 = new Swiper(".news-slider", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
@@ -170,7 +184,7 @@ window.addEventListener('load', () => {
   })
   
 
-  var swiper2 = new Swiper(".notice__slider", {
+  const swiper2 = new Swiper(".notice__slider", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
@@ -212,7 +226,7 @@ window.addEventListener('load', () => {
     swiperPlay2.style.display = 'none';
   })
   
-  var swiper3 = new Swiper(".policy__slider", {
+  const swiper3 = new Swiper(".policy__slider", {
     slidesPerView: 4,
     spaceBetween: 30,
     navigation: {
@@ -240,7 +254,7 @@ window.addEventListener('load', () => {
     },
   });
 
-  var swiper4 = new Swiper(".sns__slider", {
+  const swiper4 = new Swiper(".sns__slider", {
     slidesPerView: 4,
     spaceBetween: 30,
     navigation: {
@@ -270,7 +284,7 @@ window.addEventListener('load', () => {
     observeParents: true,	// 추가
   });
 
-  var swiper5 = new Swiper(".relevant-slider", {
+  const swiper5 = new Swiper(".relevant-slider", {
     slidesPerView: 5,
     spaceBetween: 10,
     navigation: {
@@ -305,4 +319,29 @@ window.addEventListener('load', () => {
       },
     },
   });
+
+  function disableSlide(element) {
+    element.setAttribute("aria-hidden", true);
+    element.setAttribute("tabindex", -1)
+  }
+  function ableSlide(element) {
+    element.setAttribute("aria-hidden", false);
+    element.setAttribute("tabindex", 0)
+  }
+  const swiperArray = [swiper1, swiper2, swiper3, swiper4, swiper5];
+  swiperArray.forEach((swiper) => {
+    const sliderCont = document.querySelectorAll(".swiper-slide")
+    sliderCont.forEach(slide => {
+      slide.classList.contains("swiper-slide-active") ? null : disableSlide(slide)
+    })
+    swiper.on("transitionStart", () => {
+      const activeSlide = document.querySelectorAll(".swiper-slide-active");
+      sliderCont.forEach(item => {
+        disableSlide(item)
+      });
+      activeSlide.forEach(item => {
+        ableSlide(item)
+      });
+    })
+  })
 })
